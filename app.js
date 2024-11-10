@@ -56,7 +56,7 @@ app.get("/", (req, res) => {
   res.render("landing", { Title: "Todo V3" });
 });
 app.post("/", (req, res) => {
-  user_name = req.body.username.toLowerCase().trim();
+  let user_name = req.body.username.toLowerCase().trim();
   if (user_name.includes("@")) {
     let user_name = user_name.slice(1);
   }
