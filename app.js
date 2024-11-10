@@ -3,8 +3,10 @@ const bp = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
 const { exec } = require("child_process"); // Import child_process for executing Python scripts
-
-mongoose.connect("mongodb+srv://hmmhsd37:Hamiiz12%21%40@cluster0.qcd6n.mongodb.net/todo");
+const credent = __dirname+"/X509-cert-8739069001266662074.pem"
+mongoose.connect("mongodb+srv://cluster0.qcd6n.mongodb.net/todo?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority&appName=Cluster0",
+  {tlsCertificateKeyFile:credent}
+);
 const schema = mongoose.Schema;
 
 // Function to generate unique ID by calling the Python script
@@ -58,7 +60,7 @@ app.get("/", (req, res) => {
 app.post("/", (req, res) => {
   let user_name = req.body.username.toLowerCase().trim();
   if (user_name.includes("@")) {
-    let user_name = user_name.slice(1);
+     user_name = user_name.slice(1);
   }
   User.find({ username: user_name }).then((e) => {
     if (e.length === 0) {
@@ -71,11 +73,11 @@ app.post("/", (req, res) => {
       //     }
       // })
       let user = new User({ username: user_name });
-      user.save();
-      User.findOne({ username: user_name }).then((usr) => {
+      user.save().then(() => {
         let Uid = user._id.toString();
         res.redirect("/" + user_name);
       });
+      
     } else {
       User.findOne({ username: user_name }).then((usr) => {
         let Uid = usr._id.toString();
