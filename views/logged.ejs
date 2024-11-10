@@ -1,0 +1,23 @@
+<%-include("header")%>
+    <form action="/<%=Username%>" method="post" class="landingejs">
+        <h2>Welcome Back <%= Username %>!</h2>
+        <h2>Please Enter List name or select <br> existing List</h2>
+        <input type="text"   name="list_name_inp" id="usrnm" placeholder="List Name" autocomplete="off"><br> <p>or</p>
+
+<br>        <select name="list_name_sel" id="listname" onchange="this.form.submit()" <%= enb %>>
+                <% if (av_list_name.length === 0) { %>
+                    <option value="">No lists available</option>
+                <% } else { %>
+                    <option value="">Select</option>
+                    <% av_list_name.forEach(e => { %>
+                        <option value="<%= e.name %>"><%= e.name %></option>
+                    <% }) %>
+                <% } %>
+            </select>
+ <br>
+        <button type="submit" id="submt">Open</button>
+    </form>
+
+
+
+<%-include("footer")%>
