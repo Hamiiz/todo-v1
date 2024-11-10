@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 const { exec } = require("child_process"); // Import child_process for executing Python scripts
 
-mongoose.connect("mongodb://localhost:27017/todo");
+mongoose.connect("mongodb+srv://hmmhsd37:Hamiiz12%21%40@cluster0.qcd6n.mongodb.net/todo");
 const schema = mongoose.Schema;
 
 // Function to generate unique ID by calling the Python script
