@@ -1,43 +1,44 @@
 <%- include("header")%>
 
-<div class="box">
-    
-            
+<main>
+    <div class="container-fluid">
+      <div class="header">
+        <h1 class="title"><%=Title%></h1>
+      </div>
+      <div class="box">
+        
+          <form class="itemcollec" action="/<%=Username%>/<%=Title%>/delete" method="post">
+      
+              <% if (items.length === 0) { %>
+                  <p value="">No Items </p>
+              <% } else { %>
+                  
+                      <% items.forEach(item => { %> 
+                          <div class="item">
+                              <input type="checkbox" onchange="this.form.submit()" name="checkbox" value="<%= item._id %>">
+                              <p class=""><%= item.todo_item %></p>
+                          </div>
+                      <% }) %> 
+                  
+              <% } %>
+              
+          </form>
+          <form class="item_form" action="/<%=Username%>/<%=Title%>" class="item" method="post">
+              <input type="text" id="listinp" name="item" autocomplete="off" placeholder="New To-Do">
+              <button id="plus" type="submit" name="submit">+</button>
+              <input type="hidden" name="listName" value="<%=Title%>" id="">
+              
+              
+              
+          </form>
+          <form action="/<%=Username%>/<%=Title%>/deletedb" method="post">
+              <input type="hidden" name="deldb" value="<%= Title %>">
+             <center> <button class="btn1" onclick="this.form.submit()">Delete list? </button></center>
+          </form>
 
-    <form class="itemcollec" action="/<%=Username%>/<%=Title%>/delete" method="post">
-        
-        <% if (items.length === 0) { %>
-            <p value="">No Items </p>
-        <% } else { %>
-            
-                <% items.forEach(item => { %> 
-                    <div class="item">
-                        <input type="checkbox" onchange="this.form.submit()" name="checkbox" value="<%= item._id %>">
-                        <p class=""><%= item.todo_item %></p>
-                    </div>
-                <% }) %> 
-            
-        <% } %>
-        
-    </form>
-    
-            
-    
-
-
-    
-    <form class="item_form" action="/<%=Username%>/<%=Title%>" class="item" method="post">
-        <input type="text" id="listinp" name="item" autocomplete="off" placeholder="New To-Do">
-        <button id="plus" type="submit" name="submit">+</button>
-        <input type="hidden" name="listName" value="<%=Title%>" id="">
-        
-        
-        
-    </form>
-    <form action="/<%=Username%>/<%=Title%>/deletedb" method="post">
-        <input type="hidden" name="deldb" value="<%= Title %>">
-       <center> <button class="btn1" onclick="this.form.submit()">Delete list? </button></center>
-    </form>
+      </div>
+    </div>
+  </main>
 
 </div>
  

@@ -1,7 +1,41 @@
 <%-include('header')%> 
-    <form action="/" method="post" class="landingejs">
-        <h2>Please Enter Username to <br> continue</h2>
-        <input type="text" name="username" id="usrnm" placeholder="@Something" autocomplete="off" required><br>
-        <button type="submit" id="submt">Login/Signup</button>
-    </form>
+<main>
+    <div class="container-fluid">
+      <div class="header">
+        <h1 class="title">TO-DO by NOVA</h1>
+      </div>
+      <div class="box">
+        <div class="preform">
+          <h2 class="">Welcome</h2>
+          <p class="">
+            Create or login to an Account using Username to continue
+          </p>
+        </div>
+        <form
+          id="logform"
+          action="/"
+          class="unameinp needs-validation col-12"
+          method="post"
+          novalidate
+        >
+          <div
+            class="input-group has-validation mb-3 d-flex justify-content-center"
+          >
+            <span class="input-group-text" id="Username">@</span>
+            <input
+                name="username"
+              required
+              type="text"
+              class="w-75"
+              id="Username"
+              placeholder="Username"
+            />
+            <div class="invalid-feedback">Please choose a username.</div>
+          </div>
+
+          <input class="btn w-25" type="submit" value="Log/Sign" />
+        </form>
+      </div>
+    </div>
+  </main>
 <%-include('footer')%>

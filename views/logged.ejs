@@ -1,22 +1,47 @@
 <%-include("header")%>
-    <form action="/<%=Username%>" method="post" class="landingejs">
-        <h2>Welcome Back <%= Username %>!</h2>
-        <h2>Please Enter List name or select <br> existing List</h2>
-        <input type="text"   name="list_name_inp" id="usrnm" placeholder="List Name" autocomplete="off"><br> <p>or</p>
+<main>
+    <div class="container-fluid">
+      <div class="header">
+        <h1 class="title">TO-DO by NOVA</h1>
+      </div>
+      <div class="box">
+        <div class="preform">
+          <h2>Welcome Back <%= Username %>!</h2>
+          <p>Please Enter List name or select <br> existing List</p>
+        </div>
+        
+        <form id="lnameform" action="/<%= Username %>" class="unameinp needs-validation col-12" method="post" >
 
-<br>        <select name="list_name_sel" id="listname" onchange="this.form.submit()" <%= enb %>>
-                <% if (av_list_name.length === 0) { %>
-                    <option value="">No lists available</option>
-                <% } else { %>
-                    <option value="">Select</option>
-                    <% av_list_name.forEach(e => { %>
-                        <option value="<%= e.name %>"><%= e.name %></option>
-                    <% }) %>
-                <% } %>
-            </select>
- <br>
-        <button type="submit" id="submt">Open</button>
-    </form>
+          
+              <select class=""  name="list_name_sel" id="listname" onchange="this.form.submit()" <%= enb %>>
+                  <% if (av_list_name.length === 0) { %>
+                      <option value="">No lists available</option>
+                  <% } else { %>
+                      <option value="">Select</option>
+                      <% av_list_name.forEach(e => { %>
+                       <option value="<%= e.name %>"><%= e.name %></option>
+                      <% }) %>
+                  <% } %>
+              </select> <br> <p>Or</p>
+              <input type="text" class="w-50" name="list_name_inp" id="usrnm" placeholder="List Name" autocomplete="off"/> <br>
+              <input class="btn w-25" id="submt" type="submit" value="Open"/>
+       
+      </form>
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </main>
 
 
 

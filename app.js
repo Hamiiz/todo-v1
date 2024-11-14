@@ -120,7 +120,7 @@ app.get("/:Uid", (req, res) => {
   listsSelects.length = 0;
   User.findOne({ username: par })
     .then((e) => {
-      let Uid = e._id.toString();
+      
 
       listsSelects = e.lists; // Ensure listsSelects is an array
 
