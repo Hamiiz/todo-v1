@@ -53,11 +53,11 @@ const User = new mongoose.model("User", userSchema);
 app.set("view engine", "ejs");
 app.use(bp.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
-
-app.get("/", (req, res) => {
+app.route('/')
+.get((req, res) => {
   res.render("landing", { Title: "Todo V3" });
-});
-app.post("/", (req, res) => {
+})
+.post((req, res) => {
   let user_name = req.body.username.toLowerCase().trim();
   if (user_name.includes("@")) {
      user_name = user_name.slice(1);

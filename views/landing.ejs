@@ -5,12 +5,12 @@
         <h1 class="title">TO-DO by NOVA</h1>
       </div>
       <div class="box">
-        <div class="preform">
+        <div class="inner-box">
           <h2 class="">Welcome</h2>
           <p class="">
             Create or login to an Account using Username to continue
           </p>
-        </div>
+        
         <form
           id="logform"
           action="/"
@@ -19,22 +19,23 @@
           novalidate
         >
           <div
-            class="input-group has-validation mb-3 d-flex justify-content-center"
+            class="input-group has-validation mb-3 d-flex justify-content-center inp-grp"
           >
-            <span class="input-group-text" id="Username">@</span>
+            <span class="input-group-text log-span" id="">@</span>
             <input
                 name="username"
               required
               type="text"
-              class="w-75"
+              class=""
               id="Username"
               placeholder="Username"
             />
             <div class="invalid-feedback">Please choose a username.</div>
           </div>
 
-          <input class="btn w-25" type="submit" value="Log/Sign" />
+          <input class="btn" type="submit" value="Log/Sign" />
         </form>
+      </div>
       </div>
     </div>
   </main>

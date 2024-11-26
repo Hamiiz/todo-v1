@@ -5,10 +5,10 @@
         <h1 class="title">TO-DO by NOVA</h1>
       </div>
       <div class="box">
-        <div class="preform">
+        <div class="inner-box">
           <h2>Welcome Back <%= Username %>!</h2>
           <p>Please Enter List name or select <br> existing List</p>
-        </div>
+        
         
         <form id="lnameform" action="/<%= Username %>" class="unameinp needs-validation col-12" method="post" >
 
@@ -23,11 +23,11 @@
                       <% }) %>
                   <% } %>
               </select> <br> <p>Or</p>
-              <input type="text" class="w-50" name="list_name_inp" id="usrnm" placeholder="List Name" autocomplete="off"/> <br>
-              <input class="btn w-25" id="submt" type="submit" value="Open"/>
+              <input type="text" class="" name="list_name_inp" id="usrnm" placeholder="Enter List Name" autocomplete="off"/> <br>
+              <input class="btn" id="submt" type="submit" value="Open"/>
        
       </form>
-
+      </div>
 
 
 
