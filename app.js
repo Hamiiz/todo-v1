@@ -55,7 +55,7 @@ app.use(bp.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 app.route('/')
 .get((req, res) => {
-  res.render("landing", { Title: "Todo V3" });
+  res.render("landing", { Title: "Todo V3",Username:"" });
 })
 .post((req, res) => {
   let user_name = req.body.username.toLowerCase().trim();

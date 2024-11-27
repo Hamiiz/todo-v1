@@ -7,6 +7,7 @@
       </div>
       <div class="box">
         
+        <div class="inner-box">
           <form class="itemcollec" action="/<%=Username%>/<%=Title%>/delete" method="post">
       
               <% if (items.length === 0) { %>
@@ -31,12 +32,13 @@
               
               
           </form>
-          <form action="/<%=Username%>/<%=Title%>/deletedb" method="post">
+          <form class="deletelist" action="/<%=Username%>/<%=Title%>/deletedb" method="post">
               <input type="hidden" name="deldb" value="<%= Title %>">
              <center> <button class="btn1" onclick="this.form.submit()">Delete list? </button></center>
           </form>
 
       </div>
+
     </div>
   </main>
 
